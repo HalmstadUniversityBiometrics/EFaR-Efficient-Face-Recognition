@@ -4,7 +4,7 @@ This repository contains our submissions to [EFaR-2023, Efficient Face Recogniti
 
 The models are an implementation of the **MobileNetv2 and SqueezeNet CNNs** (very **lightweight** architectures of just 8.15 and 4.55MB respectively) to carry out **face recognition**. They are trained on the MS-Celeb-1M and VGGFace2 databases (6.47M images in total). The networks have undergone a double fine-tuning, first over the MS1M-RetinaFace cleaned set (35k users/3.16M images, only users with more than 70 images), and then over VGGFace2 (9k users/3.31M images). Although VGG2 contains fewer users, it has more intra-class diversity due to more images per user. Due to this fact, the double fine-tuning strategy employed has shown increased performance compared to training the models only with one database, especially if it has few images per identity. This double fine-tuning implementation is suggested in the paper [VGGFace2: A dataset for recognising faces across pose and age](https://arxiv.org/abs/1710.08092).
 
-
+![EFAR2023](https://github.com/HalmstadUniversityBiometrics/EFaR-Efficient-Face-Recognition/assets/6042693/bdd9777e-cf51-49dc-b057-6be4cadd0cdc)
 
 The models are referred to as **HH-MB2 and HH-SQ** in the competition. We take ImageNet pre-trained networks as starting point. We have also added batch normalization between convolutions and ReLU layers of SqueezeNet, which are missing in its original implementation. Both CNNs have been modified to employ an input size of 113x113 by changing the stride of the first convolutional layer from 2 to 1. This allows to keep the rest of the network unchanged and to reuse ImageNet parameters as starting model. 
 
