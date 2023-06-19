@@ -13,12 +13,12 @@ The networks are trained for biometric identification using the soft-max functio
 After training, feature vectors for biometric verification are extracted from the layer adjacent to the classification layer (i.e., the Global Average Pooling). This corresponds to a descriptor of 1280 (HH-MB2) and 1000 (HH-SQ) elements.
 
 # Requirements
-  - Matlab software (tested in r2022b). We also provide the onnx method exported using the Matlab function "exportONNXNetwork".
+  - Matlab software (tested in r2022b). We also provide the **onnx models** exported using the Matlab function "exportONNXNetwork".
 
 # Usage
   - See readme_usage.txt file. A feature extraction script is also provided.
 
 # Pre-processing
-  - Input images must be of 113 x 113.
+  - **Input images must be of 113 x 113**.
   - We follow the tight crop of VGGFace2, with an extra 30% increase of the face bounding box, so some contextual information is added aound the face. See attached examples to see how the input images should look like. The bounding box of VGG2 images is resized so the shortest side of the image has 129 pixels. Then, a 113x113 crop is taken.
   - The network is trained with images with some random displacement in horizontal and vertical dimensions (by taking a random 113x113 crop of the image during training), so it should be somehow tolerant to non-centered faces, althought it has not been tested (during testing, we only employ the center 113x113 crop of the bounding box). Bounding boxes provided with the VGG2 database are obtained using the MTCNN detector. See the VGGFace2 paper for more details.
