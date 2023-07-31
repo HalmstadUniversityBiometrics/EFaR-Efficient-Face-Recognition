@@ -2,6 +2,9 @@
 
 This repository contains our submissions to [EFaR-2023, Efficient Face Recognition Competition](https://sites.google.com/view/ijcb-2023-efar/) at [IJCB 2023, the IEEE/IAPR International Joint Conference on Biometrics 2023](https://ijcb2023.ieee-biometrics.org/).
 
+**Please consider citing the paper if you use in your research the models shared here:**
+J. N. Kolf, F. Boutros, J. Elliesen, M. Theuerkauf, N. Damer, M. Alansarir, O. A. Hay, S. Alansari, S. Javed, N. Werghi, K. Grm, V. Struc, F. Alonso-Fernandez, K. Hernandez Diaz, J. Bigun, A. George, C. Ecabert, H. O. Shahreza, K. Kotwal, S. Marcel, I. Medvedev, J. Bo, D. Nunes, A. Hassanpour, P. Khatiwada, A. A. Toor, B. Yang, “EFaR 2023: Efficient Face Recognition Competition”, Proc. IEEE/IAPR International Joint Conference on Biometrics, IJCB, Ljubljana, Slovenia, Sep 25-28, 2023 
+
 The models are an implementation of the **MobileNetv2 and SqueezeNet CNNs** (very **lightweight** architectures of just 8.15 and 4.55MB respectively) to carry out **face recognition**. They are trained on the MS-Celeb-1M and VGGFace2 databases (6.47M images in total). The networks have undergone a double fine-tuning, first over the MS1M-RetinaFace cleaned set (35k users/3.16M images, only users with more than 70 images), and then over VGGFace2 (9k users/3.31M images). Although VGG2 contains fewer users, it has more intra-class diversity due to more images per user. Due to this fact, the double fine-tuning strategy employed has shown increased performance compared to training the models only with one database, especially if it has few images per identity. This double fine-tuning implementation is suggested in the paper [VGGFace2: A dataset for recognising faces across pose and age](https://arxiv.org/abs/1710.08092).
 
 <p align="center">
